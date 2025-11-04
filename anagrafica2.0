@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anagrafica 2.0</title>
+    <script>
+        function stampaDati() {
+            let nome = document.getElementById("nome").value;
+            let cognome = document.getElementById("cognome").value;
+            let indirizzo = document.getElementById("indirizzo").value;
+            let citta = document.getElementById("citta").value;
+
+            let sesso = "";
+            if (document.getElementById("maschio").checked) sesso = "Maschio";
+            if (document.getElementById("femmina").checked) sesso = "Femmina";
+            if (document.getElementById("altro").checked) sesso = "Altro";
+
+            let diplomi = "";
+            if (document.getElementById("media").checked) diplomi += "Licenza Media ";
+            if (document.getElementById("superiore").checked) diplomi += "Diploma Superiore ";
+            if (document.getElementById("laurea").checked) diplomi += "Laurea ";
+            if (document.getElementById("nessun_attestato").checked) diplomi += "Nessun attestato ";
+
+            let provincia = document.getElementById("provincia").value;
+
+            let sportSelezionati = document.getElementById("sport");
+            let sport = "";
+            for (let i = 0; i < sportSelezionati.options.length; i++) {
+                if (sportSelezionati.options[i].selected) {
+                    sport += sportSelezionati.options[i].value + " ";
+                }
+            }
+
+            let risultato = document.getElementById("risultato");
+            risultato.innerHTML =
+                "<p><strong>Nome:</strong> " + nome + "</p>" +
+                "<p><strong>Cognome:</strong> " + cognome + "</p>" +
+                "<p><strong>Indirizzo:</strong> " + indirizzo + "</p>" +
+                "<p><strong>Città:</strong> " + citta + "</p>" +
+                "<p><strong>Sesso:</strong> " + sesso + "</p>" +
+                "<p><strong>Diplomi:</strong> " + diplomi + "</p>" +
+                "<p><strong>Provincia:</strong> " + provincia + "</p>" +
+                "<p><strong>Sport praticati:</strong> " + sport + "</p>";
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Anagrafica 2.0</h1>
+
+    Nome: <input type="text" id="nome"><br>
+    Cognome: <input type="text" id="cognome"><br>
+    Indirizzo: <input type="text" id="indirizzo"><br>
+    Città: <input type="text" id="citta"><br><br>
+
+    Sesso:<br>
+    <input type="radio" id="maschio" name="sesso"> Maschio<br>
+    <input type="radio" id="femmina" name="sesso"> Femmina<br>
+    <input type="radio" id="altro" name="sesso"> Altro<br><br>
+
+    Diplomi posseduti:<br>
+    <input type="checkbox" id="media"> Licenza Media<br>
+    <input type="checkbox" id="superiore"> Diploma Superiore<br>
+    <input type="checkbox" id="laurea"> Laurea<br>
+    <input type="checkbox" id="nessun_attestato"> Nessun attestato<br><br>
+
+    Provincia:
+    <select id="provincia">
+        <option>MI</option><option>RM</option><option>NA</option>
+        <option>TO</option><option>PR</option><option>TA</option>
+        <option>FG</option><option>PG</option><option>AN</option>
+    </select><br><br>
+
+    Sport praticati:<br>
+    <select id="sport" multiple size="4">
+        <option>Calcio</option><option>Basket</option><option>Nuoto</option>
+        <option>Tennis</option><option>Pallavolo</option><option>Muay Thai</option>
+        <option>Scherma</option><option>Softball</option><option>Atletica leggera</option>
+        <option>Rugby</option><option>Boxe</option><option>Golf</option>
+        <option>Tiro a segno</option>
+    </select><br><br>
+
+    <button onclick="stampaDati()">Invia</button>
+
+    <h2>Risultato:</h2>
+    <div id="risultato"></div>
+
+</body>
+</html>
