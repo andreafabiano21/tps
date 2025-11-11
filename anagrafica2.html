@@ -30,21 +30,31 @@
                 }
             }
 
-            let risultato = document.getElementById("risultato");
-            risultato.innerHTML =   
-             "<table border='2' cellpadding='5' cellspacing='0'>" +
-              "<tr><th>Nome</th><th>Cognome</th><th>Indirizzo</th><th>Città</th></tr>" +
-             "<tr>" +
-            "<td>" + nome + "</td>" +
-             "<td>" + cognome + "</td>" +
-          "<td>" + indirizzo + "</td>" +
-             "<td>" + citta + "</td>" +
-                "<td>" + sesso + "</td>" +
-                "<td>" + diplomi + "</td>" +
-                "<td>" + provincia + "</td>" +
-                "<td>" + sport + "</td>" +
-                "</tr>" +
+    let tabella = 
+                "<table border='2' cellpadding='5' cellspacing='0'>" +
+                    "<tr>" +
+                        "<th>Nome</th>" +
+                        "<th>Cognome</th>" +
+                        "<th>Indirizzo</th>" +
+                        "<th>Città</th>" +
+                        "<th>Sesso</th>" +
+                        "<th>Diplomi</th>" +
+                        "<th>Provincia</th>" +
+                        "<th>Sport</th>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td>" + nome + "</td>" +
+                        "<td>" + cognome + "</td>" +
+                        "<td>" + indirizzo + "</td>" +
+                        "<td>" + citta + "</td>" +
+                        "<td>" + sesso + "</td>" +
+                        "<td>" + diplomi.join(", ") + "</td>" +
+                        "<td>" + provincia + "</td>" +
+                        "<td>" + sport.join(", ") + "</td>" +
+                    "</tr>" +
                 "</table>";
+
+            document.getElementById("risultato").innerHTML = tabella;
         }
     </script>
 </head>
