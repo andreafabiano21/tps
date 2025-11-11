@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anagrafica 2.0</title>
+    <script>
+        function stampaDati() {
+            let nome = document.getElementById("nome").value;
+            let cognome = document.getElementById("cognome").value;
+            let indirizzo = document.getElementById("indirizzo").value;
+            let citta = document.getElementById("citta").value;
+            let risultato = document.getElementById("risultato");
+         
+
+risultato.innerHTML =
+                "<p><strong>Nome:</strong> " + nome + "</p>" +
+                "<p><strong>Cognome:</strong> " + cognome + "</p>" +
+                "<p><strong>Indirizzo:</strong> " + indirizzo + "</p>" +
+                "<p><strong>Città:</strong> " + citta + "</p>" +
+        }
+    </script>
+</head>
+<body>
+ <h1>Anagrafica 2.0</h1>
+
+    Nome: <input type="text" id="nome"><br>
+    Cognome: <input type="text" id="cognome"><br>
+    Indirizzo: <input type="text" id="indirizzo"><br>
+    Città: <input type="text" id="citta"><br><br>
+
+    <button onclick="stampaDati()">Invia</button>
+
+    <h2>Risultato:</h2>
+    <div id="risultato"></div>
+
+</body>
+</html>
