@@ -31,15 +31,20 @@
             }
 
             let risultato = document.getElementById("risultato");
-            risultato.innerHTML =
-                "<p><strong>Nome:</strong> " + nome + "</p>" +
-                "<p><strong>Cognome:</strong> " + cognome + "</p>" +
-                "<p><strong>Indirizzo:</strong> " + indirizzo + "</p>" +
-                "<p><strong>Città:</strong> " + citta + "</p>" +
-                "<p><strong>Sesso:</strong> " + sesso + "</p>" +
-                "<p><strong>Diplomi:</strong> " + diplomi + "</p>" +
-                "<p><strong>Provincia:</strong> " + provincia + "</p>" +
-                "<p><strong>Sport praticati:</strong> " + sport + "</p>";
+            risultato.innerHTML =   
+             "<table border='2' cellpadding='5' cellspacing='0'>" +
+              "<tr><th>Nome</th><th>Cognome</th><th>Indirizzo</th><th>Città</th></tr>" +
+             "<tr>" +
+            "<td>" + nome + "</td>" +
+             "<td>" + cognome + "</td>" +
+          "<td>" + indirizzo + "</td>" +
+             "<td>" + citta + "</td>" +
+                "<td>" + sesso + "</td>" +
+                "<td>" + diplomi + "</td>" +
+                "<td>" + provincia + "</td>" +
+                "<td>" + sport + "</td>" +
+                "</tr>" +
+                "</table>";
         }
     </script>
 </head>
