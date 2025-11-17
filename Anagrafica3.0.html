@@ -28,65 +28,66 @@
         }
     </style>
 
-    <script>
-        function stampaDati() {
+ <script>
+    function stampaDati() {
 
-            const anagrafica = {};
+        const anagrafica = {};
 
-            anagrafica.nome = document.getElementById("nome").value;
-            anagrafica.cognome = document.getElementById("cognome").value;
-            anagrafica.indirizzo = document.getElementById("indirizzo").value;
-            anagrafica.citta = document.getElementById("citta").value;
+        anagrafica.nome = document.getElementById("nome").value;
+        anagrafica.cognome = document.getElementById("cognome").value;
+        anagrafica.indirizzo = document.getElementById("indirizzo").value;
+        anagrafica.citta = document.getElementById("citta").value;
 
-            if (document.getElementById("maschio").checked) anagrafica.sesso = "Maschio";
-            else if (document.getElementById("femmina").checked) anagrafica.sesso = "Femmina";
-            else if (document.getElementById("altro").checked) anagrafica.sesso = "Altro";
-            else anagrafica.sesso = "";
+        if (document.getElementById("maschio").checked) anagrafica.sesso = "Maschio";
+        else if (document.getElementById("femmina").checked) anagrafica.sesso = "Femmina";
+        else if (document.getElementById("altro").checked) anagrafica.sesso = "Altro";
+        else anagrafica.sesso = "";
 
-            anagrafica.diplomi = "";
-            if (document.getElementById("media").checked) anagrafica.diplomi += "Licenza Media ";
-            if (document.getElementById("superiore").checked) anagrafica.diplomi += "Diploma Superiore ";
-            if (document.getElementById("laurea").checked) anagrafica.diplomi += "Laurea ";
-            if (document.getElementById("nessun_attestato").checked) anagrafica.diplomi += "Nessun attestato ";
+        anagrafica.diplomi = "";
+        if (document.getElementById("media").checked) anagrafica.diplomi += "Licenza Media ";
+        if (document.getElementById("superiore").checked) anagrafica.diplomi += "Diploma Superiore ";
+        if (document.getElementById("laurea").checked) anagrafica.diplomi += "Laurea ";
+        if (document.getElementById("nessun_attestato").checked) anagrafica.diplomi += "Nessun attestato ";
 
-            anagrafica.provincia = document.getElementById("provincia").value;
-          
-            const listaSport = document.getElementById("sport");
-            anagrafica.sport = "";
+        anagrafica.provincia = document.getElementById("provincia").value;
+        
+        const listaSport = document.getElementById("sport");
+        anagrafica.sport = "";
 
-            for (let i = 0; i < listaSport.options.length; i++) {
-                if (listaSport.options[i].selected) {
-                    anagrafica.sport += listaSport.options[i].value + " ";
-                }
+        for (let i = 0; i < listaSport.options.length; i++) {
+            if (listaSport.options[i].selected) {
+                anagrafica.sport += listaSport.options[i].value + " ";
             }
-
-            let tabella = 
-                "<table border='2' cellpadding='5' cellspacing='0'>" +
-                    "<tr>" +
-                        "<th>Nome</th>" +
-                        "<th>Cognome</th>" +
-                        "<th>Indirizzo</th>" +
-                        "<th>Città</th>" +
-                        "<th>Sesso</th>" +
-                        "<th>Diplomi</th>" +
-                        "<th>Provincia</th>" +
-                        "<th>Sport</th>" +
-                    "</tr>" +
-                    "<tr>" +
-                        "<td>" + anagrafica.nome + "</td>" +
-                        "<td>" + anagrafica.cognome + "</td>" +
-                        "<td>" + anagrafica.indirizzo + "</td>" +
-                        "<td>" + anagrafica.citta + "</td>" +
-                        "<td>" + anagrafica.sesso + "</td>" +
-                        "<td>" + anagrafica.diplomi + "</td>" +
-                        "<td>" + anagrafica.provincia + "</td>" +
-                        "<td>" + anagrafica.sport + "</td>" +
-                    "</tr>" +
-                "</table>";
-
-            document.getElementById("risultato").innerHTML = tabella;
         }
-    </script>
+
+        let tabella =
+            "<table border='2' cellpadding='5' cellspacing='0'>" +
+                "<tr>" +
+                    "<th>Nome</th>" +
+                    "<th>Cognome</th>" +
+                    "<th>Indirizzo</th>" +
+                    "<th>Città</th>" +
+                    "<th>Sesso</th>" +
+                    "<th>Diplomi</th>" +
+                    "<th>Provincia</th>" +
+                    "<th>Sport</th>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>" + anagrafica.nome + "</td>" +
+                    "<td>" + anagrafica.cognome + "</td>" +
+                    "<td>" + anagrafica.indirizzo + "</td>" +
+                    "<td>" + anagrafica.citta + "</td>" +  <!-- QUI ERA L’ERRORE -->
+                    "<td>" + anagrafica.sesso + "</td>" +
+                    "<td>" + anagrafica.diplomi + "</td>" +
+                    "<td>" + anagrafica.provincia + "</td>" +
+                    "<td>" + anagrafica.sport + "</td>" +
+                "</tr>" +
+            "</table>";
+
+        document.getElementById("risultato").innerHTML = tabella;
+    }
+</script>
+
 
 </head>
 <body>
