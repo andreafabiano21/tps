@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anagrafica 2.0</title>
+
+    <script>
+        function stampaDati() {
+
+            const anagrafica = {};
+
+            anagrafica.nome = document.getElementById("nome").value;
+            anagrafica.cognome = document.getElementById("cognome").value;
+            anagrafica.indirizzo = document.getElementById("indirizzo").value;
+            anagrafica.citta = document.getElementById("citta").value;
+
+            if (document.getElementById("maschio").checked) anagrafica.sesso = "Maschio";
+            else if (document.getElementById("femmina").checked) anagrafica.sesso = "Femmina";
+            else if (document.getElementById("altro").checked) anagrafica.sesso = "Altro";
+            else anagrafica.sesso = "";
+
+            anagrafica.diplomi = "";
+            if (document.getElementById("media").checked) anagrafica.diplomi += "Licenza Media ";
+            if (document.getElementById("superiore").checked) anagrafica.diplomi += "Diploma Superiore ";
+            if (document.getElementById("laurea").checked) anagrafica.diplomi += "Laurea ";
+            if (document.getElementById("nessun_attestato").checked) anagrafica.diplomi += "Nessun attestato ";
+
+            anagrafica.provincia = document.getElementById("provincia").value;
+          
+            const listaSport = document.getElementById("sport");
+            anagrafica.sport = "";
+
+            for (let i = 0; i < listaSport.options.length; i++) {
+                if (listaSport.options[i].selected) {
+                    anagrafica.sport += listaSport.options[i].value + " ";
+                }
+            }
+
+            let tabella = 
+                "<table border='2' cellpadding='5' cellspacing='0'>" +
+                    "<tr>" +
+                        "<th>Nome</th>" +
+                        "<th>Cognome</th>" +
+                        "<th>Indirizzo</th>" +
+                        "<th>Città</th>" +
+                        "<th>Sesso</th>" +
+                        "<th>Diplomi</th>" +
+                        "<th>Provincia</th>" +
+                        "<th>Sport</th>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td>" + anagrafica.nome + "</td>" +
+                        "<td>" + anagrafica.cognome + "</td>" +
+                        "<td>" + anagrafica.indirizzo + "</td>" +
+                        "<td>" + anagrafica.citta + "</td>" +
+                        "<td>" + anagrafica.sesso + "</td>" +
+                        "<td>" + anagrafica.diplomi + "</td>" +
+                        "<td>" + anagrafica.provincia + "</td>" +
+                        "<td>" + anagrafica.sport + "</td>" +
+                    "</tr>" +
+                "</table>";
+
+            document.getElementById("risultato").innerHTML = tabella;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Anagrafica 3.0</h1>
+
+    Nome: <input type="text" id="nome"><br>
+    Cognome: <input type="text" id="cognome"><br>
+    Indirizzo: <input type="text" id="indirizzo"><br>
+    Città: <input type="text" id="citta"><br><br>
+
+    Sesso:<br>
+    <input type="radio" id="maschio" name="sesso"> Maschio<br>
+    <input type="radio" id="femmina" name="sesso"> Femmina<br>
+    <input type="radio" id="altro" name="sesso"> Altro<br><br>
+
+    Diplomi posseduti:<br>
+    <input type="checkbox" id="media"> Licenza Media<br>
+    <input type="checkbox" id="superiore"> Diploma Superiore<br>
+    <input type="checkbox" id="laurea"> Laurea<br>
+    <input type="checkbox" id="nessun_attestato"> Nessun attestato<br><br>
+
+    Provincia:
+    <select id="provincia">
+        <option>MI</option><option>RM</option><option>NA</option>
+        <option>TO</option><option>PR</option><option>TA</option>
+        <option>FG</option><option>PG</option><option>AN</option>
+    </select><br><br>
+
+    Sport praticati:<br>
+    <select id="sport" multiple size="4">
+        <option>Calcio</option><option>Basket</option><option>Nuoto</option>
+        <option>Tennis</option><option>Pallavolo</option><option>Muay Thai</option>
+        <option>Scherma</option><option>Softball</option><option>Atletica leggera</option>
+        <option>Rugby</option><option>Boxe</option><option>Golf</option>
+        <option>Tiro a segno</option>
+    </select><br><br>
+
+   <button type="button" onclick="stampaDati()">Invia</button>
+
+<h2>Risultato:</h2>
+<div id="risultato"></div>
+
+
+</body>
+</html>
