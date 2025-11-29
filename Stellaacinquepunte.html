@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stella a 5 punte</title>
+</head>
+<body>
+
+<canvas id="c" width="600" height="600"></canvas>
+
+<script>
+const ctx = document.getElementById("c").getContext("2d");
+
+ctx.beginPath();
+ctx.arc(300, 300, 200, 0, Math.PI * 2);
+ctx.fillStyle = "orange";
+ctx.fill();
+ctx.strokeStyle = "red";
+ctx.stroke();
+
+ctx.beginPath();
+
+ctx.moveTo(300,120);
+ctx.lineTo(340,240);
+ctx.lineTo(470,240);
+ctx.lineTo(365,315);
+ctx.lineTo(400,440);
+ctx.lineTo(300,365);
+ctx.lineTo(200,440);
+ctx.lineTo(235,315);
+ctx.lineTo(130,240);
+ctx.lineTo(260,240);
+
+ctx.closePath();
+ctx.fillStyle = "yellow";
+ctx.fill();
+ctx.strokeStyle = "black";
+ctx.stroke();
+</script>
+
+</body>
+</html>
