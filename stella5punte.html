@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Stella a cinque punte</title>
+<title>Stella semplice</title>
 </head>
 <body>
 
@@ -11,31 +11,29 @@
 const ctx = document.getElementById("c").getContext("2d");
 
 ctx.beginPath();
-ctx.arc(200, 200, 150, 0, Math.PI * 2);
+ctx.arc(300, 300, 200, 0, Math.PI * 2);
 ctx.fillStyle = "orange";
 ctx.fill();
 ctx.strokeStyle = "red";
-ctx.lineWidth = 4;
 ctx.stroke();
 
 ctx.beginPath();
-const cx = 200, cy = 200;
-const R = 100, r = 45;
 
-for (let i = 0; i < 10; i++) {
-  const angle = i * Math.PI / 5 - Math.PI / 2;
-  const radius = (i % 2 === 0) ? R : r;
-  const x = cx + Math.cos(angle) * radius;
-  const y = cy + Math.sin(angle) * radius;
-  if (i === 0) ctx.moveTo(x, y);
-  else ctx.lineTo(x, y);
-}
+ctx.moveTo(300,120);
+ctx.lineTo(340,240);
+ctx.lineTo(470,240);
+ctx.lineTo(365,315);
+ctx.lineTo(400,440);
+ctx.lineTo(300,365);
+ctx.lineTo(200,440);
+ctx.lineTo(235,315);
+ctx.lineTo(130,240);
+ctx.lineTo(260,240);
 
 ctx.closePath();
 ctx.fillStyle = "yellow";
 ctx.fill();
-ctx.strokeStyle = "orange";
-ctx.lineWidth = 3;
+ctx.strokeStyle = "black";
 ctx.stroke();
 </script>
 
