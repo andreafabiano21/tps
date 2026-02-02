@@ -13,8 +13,20 @@
        let elemnti = [];
 
       function ana(){
-        
-      
+
+        Anagrafica4.0.getItem(elenco);
+
+        nome=document.getElementById("nome").value;
+        cognome=document.getElementById("cognome").value;
+
+        const persone = {}
+          persone.nome = nome;
+        persone.cognome = cognome;
+
+        ele.push(persone);
+
+        Anagrafica4.0.setItem("elenco",JSON.stringify(ele));
+      }
     </script>
 
 
