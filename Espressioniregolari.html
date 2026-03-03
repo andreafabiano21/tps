@@ -1,46 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>esppressioni regolari </title>
-<style>
-body {
-    background: linear-gradient(135deg, #89CFF0, #9370DB);
-    font-family: Arial;
-    padding:20px;
-}
-table{
-    background:white;
-    margin-top:15px;
-}
-th{
-    background:#b19cd9;
-    color:white;
-}
-</style>
+  <title>Espressioni regolari </title>
+  <style>
+        body {
+            background: linear-gradient(135deg, #89CFF0, #9370DB);
+            font-family: Arial, sans-serif;
+            color: #222;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        table {
+            background: white;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        th {
+            background-color: #b19cd9;
+            color: white;
+        }
+    </style>
+        
+    
 </head>
 <body>
-<input type="text" id="nome" > nome <br> 
-  <input type="text" id="cognome" > cognome <br>
-  <input type="text" id="citta" > citta <br>
-  <input type="text" id="cap"> CAP <br>
-<input type="text" id="email"> email <br>
-<input type="text" id="telefono"> telefono <br>
-<input type="button" value="inserisci" onclick="ana()">
 
-  <table border="1">
-<tr>
-<th>nome</th>
-<th>cognome</th>
-<th>citta</th>
-<th>CAP</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-<tbody id="cont"></tbody>
-</table>
+   <input type="text" id="nome" >
+  Nome  <br>
+  <input type="text" id="cognome" >
+  cognome  <br>
+   <input type="text" id="citta" >
+  citta  <br>
+<input type="text" id="CAP">
+  CAP  <br>
+   <input type="text" id="E-mail">
+  E-mail  <br>
+     <input type="text" id="telefono">
+ telefono  <br>
+ 
+ 
+  <input type="button" value="inserisci" onclick="ana()">
+
+  <script>
+    let elementi = [];
+    function ana() {
+      let nome = document.getElementById("nome").value;
+      let cognome = document.getElementById("cognome").value;
+      let citta = document.getElementById("citta").value;
+      let CAP = document.getElementById("CAP").value;
+      let Email = document.getElementById("E-mail").value;
+      let telefono = document.getElementById("telefono").value;
+ 
+      const persone = {};
+      persone.nome = nome;
+      persone.cognome = cognome;
+      persone.citta = citta;
+      persone.CAP = CAP;
+      persone.E-mail = E-mail;
+      persone.telefono = telefono;
+     
+      elementi.push(persone);
+      localStorage.setItem("elenco", JSON.stringify(elementi));
+    }
+  </script>
+
+   <table border="1">
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Città</th>
+      <th>CAP</th>
+      <th>E-mail</th>
+      <th>telefono</th>
+    </tr>
+    <tbody id="cont"></tbody>
+  </table>
+     <script>
+         let cont = document.getElementById("cont");
+    let s = JSON.parse(localStorage.getItem("elenco"));
+
+    for (let i = 0; i < s.length; i++) {
+      let tr = document.createElement("tr");
+
+      tr.innerHTML =
+        "<td>" + s[i].nome + "</td>" +
+        "<td>" + s[i].cognome + "</td>" +
+        "<td>" + s[i].citta + "</td>" +
+        "<td>" + s[i].CAP + "</td>" +
+        "<td>" + s[i].E-mail + "</td>" +
+        "<td>" + s[i].telefono + "</td>";
+  cont.appendChild(tr); 
+    }
   
+    </script>
 
-
+</body>
+</html>
 
 
 
