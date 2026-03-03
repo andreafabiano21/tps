@@ -56,13 +56,50 @@
       let CAP = document.getElementById("CAP").value;
       let Email = document.getElementById("E-mail").value;
       let telefono = document.getElementById("telefono").value;
+
+      let Nomecontrollo = /^[A-Za-z]+$/;
+      let Cognomecontrollo = /^[A-Za-z]+$/;
+      let Cittacontrollo = /^[A-Za-z\s]+$/;
+      let CAPcontrollo = /^[0-9]{5}$/;
+      let Emailcontrollo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let Telefonocontrollo = /^[0-9]{8,15}$/;
+
+       if (!Nomecontrollo.test(nome)) {
+        alert("usa solo lettere ");
+        return;
+      }
+
+      if (!Cognomecontrollo.test(cognome)) {
+        alert("usa solo lettere");
+        return;
+      }
+
+      if (!Cittacontrollo.test(citta)) {
+        alert("solo lettere ");
+        return;
+      }
+
+      if (!CAPcontrollo.test(CAP)) {
+        alert("max 5 numeri");
+        return;
+      }
+
+      if (!Emailcontrollo.test(Email)) {
+        alert("Email non valida");
+        return;
+      }
+
+      if (!Telefonocontrollo.test(telefono)) {
+        alert("numero non valido ");
+        return;
+      }
  
       const persone = {};
       persone.nome = nome;
       persone.cognome = cognome;
       persone.citta = citta;
       persone.CAP = CAP;
-      persone.E-mail = E-mail;
+      persone.Email = Email;
       persone.telefono = telefono;
      
       elementi.push(persone);
@@ -93,7 +130,7 @@
         "<td>" + s[i].cognome + "</td>" +
         "<td>" + s[i].citta + "</td>" +
         "<td>" + s[i].CAP + "</td>" +
-        "<td>" + s[i].E-mail + "</td>" +
+        "<td>" + s[i].Email + "</td>" +
         "<td>" + s[i].telefono + "</td>";
   cont.appendChild(tr); 
     }
