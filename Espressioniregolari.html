@@ -46,7 +46,7 @@
 
   <script>
     let elementi = [];
-    function ana() {
+    function aggiornaTabella() {
       let nome = document.getElementById("nome").value;
       let cognome = document.getElementById("cognome").value;
       let citta = document.getElementById("citta").value;
@@ -101,6 +101,8 @@
      
       elementi.push(persone);
       localStorage.setItem("elenco", JSON.stringify(elementi));
+
+      aggiornaTabella();
     }
   </script>
 
@@ -133,7 +135,9 @@
     }       
 
     </script>
-
+ <script>
+    aggiornaTabella();
+  </script>
 </body>
 </html>
 
