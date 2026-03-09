@@ -47,6 +47,24 @@
   <script>
     let elementi = [];
     function aggiornaTabella() {
+         let cont = document.getElementById("cont");
+    let s = JSON.parse(localStorage.getItem("elenco"));
+
+    for (let i = 0; i < s.length; i++) {
+      let tr = document.createElement("tr");
+
+      tr.innerHTML =
+        "<td>" + s[i].nome + "</td>" +
+        "<td>" + s[i].cognome + "</td>" +
+        "<td>" + s[i].citta + "</td>" +
+        "<td>" + s[i].CAP + "</td>" +
+        "<td>" + s[i].Email + "</td>" +
+        "<td>" + s[i].telefono + "</td>";
+  cont.appendChild(tr); 
+    }   
+    }
+
+    function ana(){ 
       let nome = document.getElementById("nome").value;
       let cognome = document.getElementById("cognome").value;
       let citta = document.getElementById("citta").value;
@@ -103,12 +121,20 @@
       localStorage.setItem("elenco", JSON.stringify(elementi));
 
       aggiornaTabella();
+      
+      document.getElementById("nome").value = "";
+      document.getElementById("cognome").value = "";
+      document.getElementById("citta").value = "";
+      document.getElementById("CAP").value = "";
+      document.getElementById("E-mail").value = "";
+      document.getElementById("telefono").value = "";
     }
+    
   </script>
 
    <table border="1">
     <tr>
-      <th>Nome</th>
+      <th>Nome</th>				     
       <th>Cognome</th>
       <th>Città</th>
       <th>CAP</th>
@@ -117,22 +143,7 @@
     </tr>
     <tbody id="cont"></tbody>
   </table>
-     <script>
-         let cont = document.getElementById("cont");
-    let s = JSON.parse(localStorage.getItem("elenco"));
 
-    for (let i = 0; i < s.length; i++) {
-      let tr = document.createElement("tr");
-
-      tr.innerHTML =
-        "<td>" + s[i].nome + "</td>" +
-        "<td>" + s[i].cognome + "</td>" +
-        "<td>" + s[i].citta + "</td>" +
-        "<td>" + s[i].CAP + "</td>" +
-        "<td>" + s[i].Email + "</td>" +
-        "<td>" + s[i].telefono + "</td>";
-  cont.appendChild(tr); 
-    }       
 
     </script>
  <script>
