@@ -48,18 +48,18 @@
     let elementi = [];
     function aggiornaTabella() {
          let cont = document.getElementById("cont");
-    let s = JSON.parse(localStorage.getItem("elenco"));
+      cont.innerHTML = "";
 
-    for (let i = 0; i < s.length; i++) {
+    for (let i = 0; i < elementi.length; i++) {
       let tr = document.createElement("tr");
 
       tr.innerHTML =
-        "<td>" + s[i].nome + "</td>" +
-        "<td>" + s[i].cognome + "</td>" +
-        "<td>" + s[i].citta + "</td>" +
-        "<td>" + s[i].CAP + "</td>" +
-        "<td>" + s[i].Email + "</td>" +
-        "<td>" + s[i].telefono + "</td>";
+        "<td>" + elementi[i].nome + "</td>" +
+        "<td>" + elementi[i].cognome + "</td>" +
+        "<td>" + elementi[i].citta + "</td>" +
+        "<td>" + elementi[i].CAP + "</td>" +
+        "<td>" + elementi[i].Email + "</td>" +
+        "<td>" + elementi[i].telefono + "</td>";
   cont.appendChild(tr); 
     }   
     }
@@ -120,8 +120,7 @@
       elementi.push(persone);
       localStorage.setItem("elenco", JSON.stringify(elementi));
 
-      aggiornaTabella();
-      
+    aggiornaTabella();
       document.getElementById("nome").value = "";
       document.getElementById("cognome").value = "";
       document.getElementById("citta").value = "";
@@ -143,9 +142,6 @@
     </tr>
     <tbody id="cont"></tbody>
   </table>
-
-
-    </script>
  <script>
     aggiornaTabella();
   </script>
